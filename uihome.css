@@ -34,24 +34,24 @@ p{
 	font-size: 16px !important;
 	font-weight: 400;
 	line-height: 22px;
-	color: #545454
+	color: #535669
    
 }
 
 .btn-comm{
-	background: linear-gradient(45deg, #53d995, #39c7c3);
+	background: #f2f2fa;
 	border-radius: 25px;
 	padding: 8px 20px;
 	border:2px solid transparent;
 	text-align: center;
-	color: #fff;
+	color: #222431;
 	font-size: 16px;
 	font-weight: 500
 }
 .btn-comm:hover{
 	background: #000;
-	color: #39c7c3;
-	border-color: #39c7c3;
+	color: #f2f2fa;
+	border-color: #f2f2fa;
 }
 .btn-comm-lg{
 	padding: 10px 30px;
@@ -64,7 +64,7 @@ p{
 	border-color: #000;
 }
 .btn-black:hover{
-	background: linear-gradient(45deg, #53d995, #39c7c3);
+	background: #f2f2fa;
 	color: #000;
 	border-color: #000
 }
@@ -91,7 +91,7 @@ p{
 	text-align: center;
 	font-size: 16px;
 	font-weight: 500;
-	color: #545454;
+	color: #ffffff;
 	margin-bottom: 20px;
 	margin-top: 20px;
 }
@@ -312,7 +312,7 @@ header .container{
     color: red;
     display: block;
     text-align: center;
-    background: #000;
+    background: #fff;
     margin: 0 auto;
     font-size: 12px;
     border-radius: 15px;
@@ -562,8 +562,8 @@ header .container{
 	 display: block;
     width: 100%;
     text-align: center;
-    background: #fff;
-    color: #000;
+    background: #000;
+    color: #fff;
     border-radius: 5px 5px 0 0;
     padding: 5px 0;
     font-weight: 600;
@@ -1485,7 +1485,7 @@ span.section-subHeading-md{
 }
 
 .steps-form-box .form-control option{
-	color: #000;
+	color: #fff;
 }
 
 .finished-heading{
@@ -1519,7 +1519,7 @@ span.section-subHeading-md{
 .api-thankyou-box{
 	width: 90%;
 	max-width: 500px;
-	background: #000;
+	background: #fff;
 	border:2px solid #39c7c3;
 	border-radius: 15px;
 	padding: 90px 20px 100px;
@@ -1611,7 +1611,7 @@ span.section-subHeading-md{
 }
 
 .priceP-secN  .nav-tabs .nav-link:hover{
-	background: #000
+	background: #fff
 }
 .priceP-secN .nav-tabs .nav-item{
 	margin: 0 5px;
@@ -1619,12 +1619,12 @@ span.section-subHeading-md{
 }
 
 .priceP-secN .nav-tabs .nav-link.active{
-background: #000;
+background: #fff;
  border-color: #39c7c3;
 }
 .priceP-secN .nav-tabs .nav-link.active:hover{
 background: linear-gradient(45deg, #53d995, #39c7c3);
- border-color: #000;
+ border-color: #fff;
 }
 
 
@@ -1913,7 +1913,7 @@ background: linear-gradient(45deg, #53d995, #39c7c3);
     font-weight: 500;
     width: 70%;
     margin: 0 auto;
-	color:#000;
+	color:#fff;
 }
 
 @media(max-width:1366px){
@@ -1935,7 +1935,7 @@ background: linear-gradient(45deg, #53d995, #39c7c3);
     width: 100%;
     display: inline-block;
     padding: 10px 20px;
-    color: #000;
+    color: #fff;
     border: solid 1px #f7f7f7;
 }
 
@@ -1944,7 +1944,7 @@ background: linear-gradient(45deg, #53d995, #39c7c3);
 }
 
 .downloadP-sec .btn-comm{
-	background: #000;
+	background: #fff;
     color: #39c7c3;
     border-color: #39c7c3;
     padding: 6px 10px;
