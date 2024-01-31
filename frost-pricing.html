@@ -3,31 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Service Subscriptions</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <title>FrostBite</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
             margin: 0;
-            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #070707; /* Match subscription page background color */
+        }
+
+        #navbar {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background: #070707;
-            color: #fff;
-            transition: background 0.5s ease; /* Extended transition duration */
+            background-color: #070707;
+            padding: 10px;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            color: #fff;
+        #logo {
+            width: 150px; /* Adjust the size as needed */
         }
 
-        h1 {
-            margin-bottom: 20px;
-            font-size: 24px;
-            font-weight: 700;
+        #signInContainer {
+            display: flex;
+            align-items: center;
+        }
+
+        #button {
+            background-color: #171717;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-right: 10px; /* Adjust the margin as needed */
+        }
+
+        #signInText {
+            color: white;
+            font-size: 15px;
+        }
+
+        #userIcon {
+            width: 13px; /* Adjust the size as needed */
+            margin-right: 5px; /* Adjust the margin as needed */
+        }
+
+        .subscriptions-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px; /* Add padding for better spacing */
         }
 
         .subscription {
@@ -36,10 +62,10 @@
             margin: 15px;
             text-align: center;
             max-width: 350px;
-            width: 100%;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
             background-color: #111;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: calc(33.33% - 30px); /* Three items per row with margin */
         }
 
         .subscription:hover {
@@ -51,6 +77,7 @@
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 10px;
+            color: #fff;
         }
 
         p {
@@ -63,20 +90,20 @@
         button.premium {
             padding: 12px 24px;
             border: none;
-            border-radius: 20px; /* Slightly more circular edges */
+            border-radius: 20px;
             cursor: pointer;
             font-size: 16px;
             font-weight: 700;
-            transition: background 0.5s ease, transform 0.8s ease, box-shadow 0.5s ease; /* Extended transition duration */
+            transition: background 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease; /* Extended transition duration */
         }
 
         button.basic {
-            background: linear-gradient(to right, #333, #1a1a1a); /* Gradient for basic */
+            background: linear-gradient(to right, #3366ff, #003366); /* Gradient for basic */
             color: #fff;
         }
 
         button.pro {
-            background: linear-gradient(to right, #1a1a1a, #333);
+            background: linear-gradient(to right, #666, #333);
             color: #fff;
         }
 
@@ -96,53 +123,58 @@
             margin-bottom: 10px;
             font-size: 24px;
             font-weight: 700;
+            color: #fff;
+            text-align: center; /* Center the pricing heading */
         }
 
         .tagline {
             font-size: 16px;
             margin-bottom: 30px;
+            color: #bbb;
+            text-align: center;
         }
 
         @media (max-width: 600px) {
-            .subscription,
-            button {
-                transform-origin: center;
-            }
-
-            h1 {
-                font-size: 18px;
-            }
-
             .subscription {
-                max-width: 300px;
+                width: 100%; /* Full width for mobile */
             }
         }
     </style>
 </head>
 <body>
+    <div id="navbar">
+        <img id="logo" src="FB-Logo.png" alt="Logo">
+        <div id="signInContainer">
+            <button id="button">Play Now</button>
+            <img id="userIcon" src="person.png" alt="User Icon">
+            <span id="signInText">Sign In</span>
+        </div>
+    </div>
 
-    <h1>Pricing</h1>
+    <h1 class="pricing">Pricing</h1>
     <p class="tagline">Don't Stop Gaming, Select a Plan Now</p>
 
-    <div class="subscription">
-        <h2>Basic Plan</h2>
-        <p>Get access to essential features.</p>
-        <p>Price: $9.99/month</p>
-        <button class="basic">Subscribe Now</button>
-    </div>
+    <div class="subscriptions-container">
+        <div class="subscription">
+            <h2>Basic Plan</h2>
+            <p>Get access to essential features.</p>
+            <p>Price: $9.99/month</p>
+            <button class="basic">Subscribe Now</button>
+        </div>
 
-    <div class="subscription">
-        <h2>Pro Plan</h2>
-        <p>Unlock advanced features for power users.</p>
-        <p>Price: $19.99/month</p>
-        <button class="pro">Subscribe Now</button>
-    </div>
+        <div class="subscription">
+            <h2>Pro Plan</h2>
+            <p>Unlock advanced features for power users.</p>
+            <p>Price: $19.99/month</p>
+            <button class="pro">Subscribe Now</button>
+        </div>
 
-    <div class="subscription">
-        <h2>Premium Plan</h2>
-        <p>Exclusive access to all features, priority support.</p>
-        <p>Price: $29.99/month</p>
-        <button class="premium">Subscribe Now</button>
+        <div class="subscription">
+            <h2>Premium Plan</h2>
+            <p>Exclusive access to all features, priority support.</p>
+            <p>Price: $29.99/month</p>
+            <button class="premium">Subscribe Now</button>
+        </div>
     </div>
 
     <script>
@@ -157,6 +189,5 @@
             });
         });
     </script>
-
 </body>
 </html>

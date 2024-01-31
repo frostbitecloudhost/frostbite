@@ -8,6 +8,7 @@
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
+            background: #070707;
         }
 
         #navbar {
@@ -53,11 +54,18 @@
         <img id="logo" src="FB-Logo.png" alt="Logo">
         <div id="signInContainer">
              <!-- Add your user icon image -->
-            <button id="button">Play Now</button>
+           <button id="button" onclick="redirectToPricing()">Play Now</button>
             <img id="userIcon" src="person.png" alt="User Icon">
             <span id="signInText">Sign In</span>
         </div>
     </div>
     <!-- Rest of your content goes here -->
+    <script>
+    function redirectToPricing() {
+        // Change the HTML content to frost-pricing.html
+        window.location.href = "frost-pricing.html";
+    }
+</script>
+
 </body>
 </html>
