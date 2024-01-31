@@ -20,7 +20,7 @@
         }
 
         #logo {
-            width: 150px; /* Adjust the size as needed */
+            width: 150px;
         }
 
         #signInContainer {
@@ -35,7 +35,7 @@
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            margin-right: 10px; /* Adjust the margin as needed */
+            margin-right: 10px;
         }
 
         #signInText {
@@ -44,8 +44,28 @@
         }
 
         #userIcon {
-            width: 13px; /* Adjust the size as needed */
-            margin-right: 5px; /* Adjust the margin as needed */
+            width: 13px;
+            margin-right: 5px;
+        }
+
+        #banner {
+            width: 100%;
+            height: auto;
+            opacity: 0; /* Initial opacity set to 0 */
+            transition: opacity 1s ease-in-out; /* Smooth transition for opacity */
+        }
+
+        .generate {
+            animation: generate 1s ease-in-out forwards; /* Animation for content generation */
+        }
+
+        @keyframes generate {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -53,19 +73,31 @@
     <div id="navbar">
         <img id="logo" src="FB-Logo.png" alt="Logo">
         <div id="signInContainer">
-             <!-- Add your user icon image -->
-           <button id="button" onclick="redirectToPricing()">Play Now</button>
+            <button id="button" onclick="redirectToPricing()">Play Now</button>
             <img id="userIcon" src="person.png" alt="User Icon">
             <span id="signInText">Sign In</span>
         </div>
     </div>
+
+    <!-- Banner Image with Scrolling Animation -->
+    <img id="banner" class="generate" src="bannerlethal.png" alt="Banner Image">
+
     <!-- Rest of your content goes here -->
     <script>
-    function redirectToPricing() {
-        // Change the HTML content to frost-pricing.html
-        window.location.href = "frost-pricing.html";
-    }
-</script>
+        function redirectToPricing() {
+            window.location.href = "frost-pricing.html";
+        }
 
+        // Add JavaScript to trigger animation on scroll
+        document.addEventListener('scroll', function () {
+            var banner = document.getElementById('banner');
+            var position = banner.getBoundingClientRect();
+            
+            // If the banner is in the viewport, add the 'generate' class
+            if (position.top >= 0 && position.bottom <= window.innerHeight) {
+                banner.classList.add('generate');
+            }
+        });
+    </script>
 </body>
 </html>
