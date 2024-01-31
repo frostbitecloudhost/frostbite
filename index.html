@@ -51,12 +51,12 @@
         #banner {
             width: 100%;
             height: auto;
-            opacity: 0; /* Initial opacity set to 0 */
-            transition: opacity 1s ease-in-out; /* Smooth transition for opacity */
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
 
         .generate {
-            animation: generate 1s ease-in-out forwards; /* Animation for content generation */
+            animation: generate 1s ease-in-out forwards;
         }
 
         @keyframes generate {
@@ -65,6 +65,15 @@
             }
             100% {
                 opacity: 1;
+            }
+        }
+
+        /* Media query for PCs */
+        @media only screen and (min-width: 768px) {
+            #banner {
+                max-width: 100%; /* Adjust the maximum width as needed */
+                height: auto;
+                object-fit: contain;
             }
         }
     </style>
