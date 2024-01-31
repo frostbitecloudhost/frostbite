@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cloud Service Subscriptions</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <style>
         body {
-            font-family: 'Helvetica', sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
@@ -14,15 +15,19 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background: linear-gradient(to right, #202020, #111);
-            color: #ddd;
+            background: #070707;
+            color: #fff;
             transition: background 0.5s ease; /* Extended transition duration */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #fff;
         }
 
         h1 {
             margin-bottom: 20px;
             font-size: 24px;
-            color: #ffcc00;
+            font-weight: 700;
         }
 
         .subscription {
@@ -34,19 +39,17 @@
             width: 100%;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
             background-color: #111;
-            border: 1px solid #444;
-            transition: transform 0.3s ease, border-radius 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .subscription:hover {
             transform: scale(1.05);
-            border-radius: 20px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
         }
 
         h2 {
             font-size: 20px;
-            color: #ffcc00;
+            font-weight: 700;
             margin-bottom: 10px;
         }
 
@@ -58,21 +61,22 @@
         button.basic,
         button.pro,
         button.premium {
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
-            border-radius: 8px;
+            border-radius: 20px; /* Slightly more circular edges */
             cursor: pointer;
             font-size: 16px;
-            transition: background 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease; /* Extended transition duration */
+            font-weight: 700;
+            transition: background 0.5s ease, transform 0.8s ease, box-shadow 0.5s ease; /* Extended transition duration */
         }
 
         button.basic {
-            background: linear-gradient(to right, #3366ff, #003366); /* Gradient for basic */
+            background: linear-gradient(to right, #333, #1a1a1a); /* Gradient for basic */
             color: #fff;
         }
 
         button.pro {
-            background: linear-gradient(to right, #666, #333);
+            background: linear-gradient(to right, #1a1a1a, #333);
             color: #fff;
         }
 
@@ -86,6 +90,17 @@
         button.premium:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing {
+            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 16px;
+            margin-bottom: 30px;
         }
 
         @media (max-width: 600px) {
@@ -106,7 +121,8 @@
 </head>
 <body>
 
-    <h1>Cloud Service Subscriptions</h1>
+    <h1>Pricing</h1>
+    <p class="tagline">Don't Stop Gaming, Select a Plan Now</p>
 
     <div class="subscription">
         <h2>Basic Plan</h2>
