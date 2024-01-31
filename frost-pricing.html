@@ -90,10 +90,11 @@
             transition: transform 0.5s ease, box-shadow 0.5s ease;
             width: calc(33.33% - 30px);
             animation: zoomIn 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            transform-origin: center center;
         }
 
         .subscription:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) rotateY(0deg);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
         }
 
@@ -189,6 +190,7 @@
             <button class="pro">Subscribe Now</button>
         </div>
 
+       
         <div class="subscription">
             <h2>Premium Plan</h2>
             <p>Exclusive access to all features, priority support.</p>
@@ -214,8 +216,14 @@
             }
         }
 
+        const subscriptions = document.querySelectorAll('.subscription');
+
+        subscriptions.forEach((subscription, index) => {
+            subscription.style.animationDelay = `${index * 0.2}s`;
+        });
+
         const buttons = document.querySelectorAll('button');
-        
+
         buttons.forEach(button => {
             button.addEventListener('click', () => {
                 button.style.background = 'linear-gradient(to right, #111, #202020)';
