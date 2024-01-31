@@ -68,10 +68,19 @@
             }
         }
 
-        /* Media query for PCs */
-        @media only screen and (min-width: 768px) {
+        /* Media query for PCs and portrait orientation */
+        @media only screen and (min-width: 768px) and (orientation: portrait) {
             #banner {
                 max-width: 100%; /* Adjust the maximum width as needed */
+                height: auto;
+                object-fit: contain;
+            }
+        }
+
+        /* Media query for PCs and landscape orientation */
+        @media only screen and (min-width: 768px) and (orientation: landscape) {
+            #banner {
+                max-width: 50%; /* Adjust the maximum width as needed for landscape */
                 height: auto;
                 object-fit: contain;
             }
