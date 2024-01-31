@@ -36,6 +36,16 @@
             border-radius: 50px;
             cursor: pointer;
             margin-right: 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            outline: none; /* Remove outline on click */
+        }
+
+        #button:hover {
+            background-color: #2c2c2c;
+        }
+
+        #button:active {
+            transform: scale(0.95);
         }
 
         #signInText {
@@ -48,42 +58,46 @@
             margin-right: 5px;
         }
 
-        #banner {
-            width: 100%;
-            height: auto;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
+        /* Additional Styles for Showcase and Exclusive Game */
+        #showcase-section {
+            margin: 20px auto;
+            text-align: center;
         }
 
-        .generate {
-            animation: generate 1s ease-in-out forwards;
+        .feature-card {
+            background-color: #1f1f1f;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px;
         }
 
-        @keyframes generate {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
+        #exclusive-game-section {
+            margin: 20px auto;
+            text-align: center;
         }
 
-        /* Media query for PCs and portrait orientation */
-        @media only screen and (min-width: 768px) and (orientation: portrait) {
-            #banner {
-                max-width: 100%; /* Adjust the maximum width as needed */
-                height: auto;
-                object-fit: contain;
-            }
+        .game-card {
+            background-color: #1f1f1f;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px;
         }
 
-        /* Media query for PCs and landscape orientation */
-        @media only screen and (min-width: 768px) and (orientation: landscape) {
-            #banner {
-                max-width: 50%; /* Adjust the maximum width as needed for landscape */
-                height: auto;
-                object-fit: contain;
-            }
+        .play-now-button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .play-now-button:hover {
+            background-color: #2980b9;
         }
     </style>
 </head>
@@ -91,31 +105,57 @@
     <div id="navbar">
         <img id="logo" src="FB-Logo.png" alt="Logo">
         <div id="signInContainer">
-            <button id="button" onclick="redirectToPricing()">Play Now</button>
+            <button id="button" onclick="redirectToAnotherPage()">Play Now</button>
             <img id="userIcon" src="person.png" alt="User Icon">
             <span id="signInText">Sign In</span>
         </div>
     </div>
 
-    <!-- Banner Image with Scrolling Animation -->
-    <img id="banner" class="generate" src="bannerlethal.png" alt="Banner Image">
+    <!-- Showcase Section -->
+    <div id="showcase-section">
+        <h2 style="color: white; text-align: center;">Explore Our Features</h2>
 
-    <!-- Rest of your content goes here -->
+        <div class="feature-card">
+            <img src="feature1-icon.png" alt="Feature 1 Icon">
+            <h3>Secure Storage</h3>
+            <p>Enjoy reliable and secure cloud storage with advanced encryption.</p>
+        </div>
+
+        <div class="feature-card">
+            <img src="feature2-icon.png" alt="Feature 2 Icon">
+            <h3>Collaborative Tools</h3>
+            <p>Enhance teamwork with collaborative tools and real-time document sharing.</p>
+        </div>
+
+        <div class="feature-card">
+            <img src="feature3-icon.png" alt="Feature 3 Icon">
+            <h3>Scalability</h3>
+            <p>Scale your resources easily to accommodate your growing business needs.</p>
+        </div>
+    </div>
+
+    <!-- Exclusive Game of the Month -->
+    <div id="exclusive-game-section">
+        <h2 style="color: white; text-align: center;">Exclusive Game of the Month</h2>
+
+        <div class="game-card">
+            <img src="exclusive-game-cover.png" alt="Exclusive Game Cover">
+            <h3>The Legendary Quest</h3>
+            <p>Dive into the immersive world of "The Legendary Quest" - available exclusively this month!</p>
+            <a href="#" class="play-now-button" onclick="playExclusiveGame()">Play Now</a>
+        </div>
+    </div>
+
     <script>
-        function redirectToPricing() {
+        function redirectToAnotherPage() {
+            // Replace 'another-page.html' with the actual HTML file you want to navigate to
             window.location.href = "frost-pricing.html";
         }
 
-        // Add JavaScript to trigger animation on scroll
-        document.addEventListener('scroll', function () {
-            var banner = document.getElementById('banner');
-            var position = banner.getBoundingClientRect();
-            
-            // If the banner is in the viewport, add the 'generate' class
-            if (position.top >= 0 && position.bottom <= window.innerHeight) {
-                banner.classList.add('generate');
-            }
-        });
+        function playExclusiveGame() {
+            // Add logic to handle playing the exclusive game
+            alert("Launching 'The Legendary Quest'...");
+        }
     </script>
 </body>
 </html>
