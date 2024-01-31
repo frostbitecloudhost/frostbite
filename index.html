@@ -1,22 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrostBite</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
 
-  <title>HTML</title>
-  
-  <!-- HTML -->
-  
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #070707;
+            padding: 10px;
+        }
 
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="style.css">
+        #logo {
+            width: 150px; /* Adjust the size as needed */
+        }
+
+        #signInContainer {
+            display: flex;
+            align-items: center;
+        }
+
+        #button {
+            background-color: #171717;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-right: 10px; /* Adjust the margin as needed */
+        }
+
+        #signInText {
+            color: white;
+            font-size: 15px;
+        }
+
+        #userIcon {
+            width: 13px; /* Adjust the size as needed */
+            margin-right: 5px; /* Adjust the margin as needed */
+        }
+    </style>
 </head>
-
 <body>
-  <p>Nothing to see here...</p>
-  <!-- Project -->
-  <script src="main.js"></script>
+    <div id="navbar">
+        <img id="logo" src="FB-Logo.png" alt="Logo">
+        <div id="signInContainer">
+             <!-- Add your user icon image -->
+            <button id="button">Play Now</button>
+            <img id="userIcon" src="person.png" alt="User Icon">
+            <span id="signInText">Sign In</span>
+        </div>
+    </div>
+    <!-- Rest of your content goes here -->
 </body>
 </html>
