@@ -1,11 +1,27 @@
-// signin.js
+// Import Firebase modules
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "your-api-key",
+    authDomain: "your-auth-domain",
+    projectId: "your-project-id",
+    storageBucket: "your-storage-bucket",
+    messagingSenderId: "your-messaging-sender-id",
+    appId: "your-app-id",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 // Function to update the sign-in text based on user authentication
 function updateSignInText() {
     var signInTextElement = document.getElementById("signInText");
 
     // Get the current user from Firebase Authentication
-    var user = firebase.auth().currentUser;
+    var user = auth.currentUser;
 
     if (user) {
         // User is signed in
@@ -16,35 +32,13 @@ function updateSignInText() {
     }
 }
 
-// Function to perform login
-function login(email, password) {
-    firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            // User logged in successfully
-            console.log("Login successful:", userCredential.user);
-        })
-        .catch((error) => {
-            console.error("Login error:", error.message);
-            alert("Login failed. Check your username and password.");
-        });
-}
-
-// Call the function when the DOM is fully loaded
+// Add an event listener to wait for the DOM to fully load
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM Loaded");
 
     // Add an observer to handle authentication state changes
-    firebase.auth().onAuthStateChanged(function(user) {
+    onAuthStateChanged(auth, function (user) {
         // Update UI on authentication state changes
         updateSignInText();
-    });
-
-    // Add event listener for login form
-    document.getElementById("loginForm").addEventListener("submit", function (event) {
-        event.preventDefault();
-        const email = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-
-        login(email, password);
     });
 });
