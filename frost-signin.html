@@ -1,5 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Sign Up</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at top left, #05060c, #1c1e38);
+            color: white;
+            padding-top: 60px;
+        }
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+        #navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.01);
+            padding: 10px;
+            border-radius: 0px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+       #logo {
+            width: 150px;
+            transition: transform 0.5s ease-in-out;
+            filter: brightness(1.2);
+            margin-top: 5px;
+        }
+
+        #signInContainer {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        #button {
+            background-color: #171717;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-right: 10px;
+            filter: brightness(0.9);
+            max-width: 120px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        #signInText {
+            color: white;
+            font-size: 15px;
+            max-width: 80px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-right: 20px;
+        }
+
+        #userIcon {
+            width: 13px;
+            margin-right: 5px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            width: 300px;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-top: 60px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: background 0.5s ease, backdrop-filter 0.5s ease, box-shadow 0.5s ease, transform 0.5s ease;
+            opacity: 1;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        input {
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #666;
+            border-radius: 8px;
+            color: #ccc;
+            background-color: #444;
+            transition: border-color 0.3s ease, transform 0.5s ease, background-color 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #3498db;
+            transform: scale(1.05);
+            background-color: #555;
+        }
+
+        input::placeholder {
+            color: #888;
+            transition: color 0.3s ease;
+        }
+
+        input:focus::placeholder {
+            color: transparent;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .switch-form {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .switch-form a {
+            color: #3498db;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .switch-form a:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (orientation: landscape) {
+            .container {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        #signupContainer {
+            display: none;
+            opacity: 0;
+        }
+    </style>
+    <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
 
 // Your web app's Firebase configuration
@@ -44,3 +218,93 @@ document.addEventListener("DOMContentLoaded", function () {
         updateSignInText();
     });
 });
+</script>
+</head>
+<body>
+    <div id="navbar">
+        <a href="index.html" id="logoLink">
+            <img id="logo" src="FB-Logo.png" alt="Logo" onclick="navigateToHome()">
+        </a>
+        <div id="signInContainer">
+            <button id="button">Play Now</button>
+            <img id="userIcon" src="person.png" alt="User Icon">
+           
+            <span id="signInText" onclick="switchForm('signupContainer')">Sign Up</span>
+        </div>
+    </div>
+
+    <!-- Login Container -->
+    <div class="container" id="loginContainer">
+        <h1>Login</h1>
+        <form id="loginForm">
+                        <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <div class="switch-form">
+            <p>Don't have an account? <a href="#" onclick="switchForm('signupContainer')">Sign Up</a></p>
+        </div>
+    </div>
+
+    <!-- Signup Container -->
+    <div class="container" id="signupContainer">
+        <h1>Sign Up</h1>
+        <form id="signupForm">
+            <label for="signupUsername">Username:</label>
+            <input type="text" id="signupUsername" name="signupUsername" required>
+
+            <label for="signupEmail">Email:</label>
+            <input type="email" id="signupEmail" name="signupEmail" required>
+
+            <label for="signupPassword">Password:</label>
+            <input type="password" id="signupPassword" name="signupPassword" required>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+            <button type="submit" onclick="signUp()">Sign Up</button>
+        </form>
+        <div class="switch-form">
+            <p>Already have an account? <a href="#" onclick="switchForm('loginContainer')">Login</a></p>
+        </div>
+    </div>
+
+    <script>
+        function switchForm(containerId) {
+            var loginContainer = document.getElementById('loginContainer');
+            var signupContainer = document.getElementById('signupContainer');
+
+            if (containerId === 'loginContainer') {
+                loginContainer.style.opacity = '1';
+                loginContainer.style.pointerEvents = 'auto';
+                signupContainer.style.opacity = '0';
+                signupContainer.style.pointerEvents = 'none';
+                setTimeout(function() {
+                    signupContainer.style.display = 'none';
+                    loginContainer.style.display = 'block';
+                }, 500);
+            } else {
+                signupContainer.style.opacity = '1';
+                signupContainer.style.pointerEvents = 'auto';
+                loginContainer.style.opacity = '0';
+                loginContainer.style.pointerEvents = 'none';
+                setTimeout(function() {
+                    loginContainer.style.display = 'none';
+                    signupContainer.style.display = 'block';
+                }, 500);
+            }
+        }
+
+        function signUp() {
+            // Add Firebase authentication logic here
+            console.log("Sign up logic goes here");
+        }
+    </script>
+</body>
+</html>
+
+
