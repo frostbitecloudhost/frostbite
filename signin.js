@@ -45,4 +45,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         login(email, password);
     });
+
+    // Add an observer to handle authentication state changes
+    firebase.auth().onAuthStateChanged(function(user) {
+        // Update UI on authentication state changes
+        updateSignInText();
+    });
 });
