@@ -11,21 +11,33 @@
             background: #070707;
         }
 
-        #navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #070707;
-            padding: 10px;
-        }
+      #navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 0px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    z-index: 1000; /* Ensure it appears above other elements */
+    backdrop-filter: blur(10px); /* Add backdrop-filter for blur effect */
+}
+
 
         #logo {
             width: 150px;
+            transition: transform 0.5s ease-in-out;
+            filter: brightness(1.2);
         }
 
         #signInContainer {
             display: flex;
             align-items: center;
+            white-space: nowrap;
         }
 
         #button {
@@ -36,21 +48,19 @@
             border-radius: 50px;
             cursor: pointer;
             margin-right: 10px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            outline: none; /* Remove outline on click */
-        }
-
-        #button:hover {
-            background-color: #2c2c2c;
-        }
-
-        #button:active {
-            transform: scale(0.95);
+            filter: brightness(0.9);
+            max-width: 120px;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         #signInText {
             color: white;
             font-size: 15px;
+            max-width: 80px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-right: 20px;
         }
 
         #userIcon {
@@ -59,25 +69,13 @@
         }
 
         /* Additional Styles for Showcase and Exclusive Game */
-        #showcase-section {
-            margin: 20px auto;
-            text-align: center;
-        }
+       #showcase-section {
+    margin: 80px auto 20px; /* Adjust the top margin to create more space */
+    text-align: center;
+}
 
-        .feature-card {
-            background-color: #1f1f1f;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 10px;
-        }
 
-        #exclusive-game-section {
-            margin: 20px auto;
-            text-align: center;
-        }
-
-        .game-card {
+        .feature-card, .game-card {
             background-color: #1f1f1f;
             color: white;
             padding: 20px;

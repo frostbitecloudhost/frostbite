@@ -7,21 +7,32 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
     <style>
         body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(to bottom, #05060c, #1c1e38);
-            color: white;
-        }
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at top left, #05060c, #1c1e38);
+    color: white;
+    padding-top: 60px; /* Adjust this value based on the height of your fixed navbar */
+}
 
-        #navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(7, 7, 7, 0.8);
-            padding: 10px;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 0px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    z-index: 1000; /* Ensure it appears above other elements */
+    backdrop-filter: blur(10px); /* Add backdrop-filter for blur effect */
+}
+
+
+
+
 
         #logo {
             width: 150px;
@@ -29,26 +40,37 @@
             filter: brightness(1.2);
         }
 
-        #signInContainer {
-            display: flex;
-            align-items: center;
-        }
+  #signInContainer {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
 
-        #button {
-            background-color: #171717;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            margin-right: 10px;
-            filter: brightness(0.9);
-        }
+#button {
+    background-color: #171717;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-right: 10px;
+    filter: brightness(0.9);
+    max-width: 120px; /* Adjust this value based on your layout */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-        #signInText {
-            color: white;
-            font-size: 15px;
-        }
+#signInText {
+    color: white;
+    font-size: 15px;
+    max-width: 80px; /* Adjust this value based on your layout */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 20px;
+}
+
+
+
 
         #userIcon {
             width: 13px;
@@ -124,6 +146,15 @@
         .switch-form a:hover {
             text-decoration: underline;
         }
+        
+        @media screen and (orientation: landscape) {
+    .container {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
     </style>
 </head>
 <body>

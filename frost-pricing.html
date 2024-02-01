@@ -29,135 +29,196 @@
         }
 
         body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: #070707;
-        }
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to bottom, #05060c, #1c1e38);
+    color: white;
+}
 
-        #navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #070707;
-            padding: 10px;
-        }
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 0px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    z-index: 1000; /* Ensure it appears above other elements */
+    backdrop-filter: blur(10px); /* Add backdrop-filter for blur effect */
+}
+
+
+
+
 
         #logo {
             width: 150px;
             transition: transform 0.5s ease-in-out;
+            filter: brightness(1.2);
         }
 
-        #signInContainer {
-            display: flex;
-            align-items: center;
-        }
+  #signInContainer {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
 
-        #button {
-            background-color: #171717;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            margin-right: 10px;
-        }
+#button {
+    background-color: #171717;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-right: 10px;
+    filter: brightness(0.9);
+    max-width: 120px; /* Adjust this value based on your layout */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-        #signInText {
-            color: white;
-            font-size: 15px;
-        }
+#signInText {
+    color: white;
+    font-size: 15px;
+    max-width: 80px; /* Adjust this value based on your layout */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 20px;
+}
 
-        #userIcon {
-            width: 13px;
-            margin-right: 5px;
-        }
+#userIcon {
+    width: 13px;
+    margin-right: 5px;
+}
 
-        .subscriptions-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            padding: 20px;
-        }
+.container {
+    background: linear-gradient(to bottom, #111, #202020);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    width: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 60px auto;
+    text-align: center;
+}
 
-        .subscription {
-            border-radius: 12px;
-            padding: 20px;
-            margin: 15px;
-            text-align: center;
-            max-width: 350px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-            background-color: #111;
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-            width: calc(33.33% - 30px);
-            animation: zoomIn 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-            transform-origin: center center;
-        }
+h1.pricing,
+p.tagline,
+h2,
+p {
+    color: #fff;
+    text-align: center; /* Added to center the text */
+}
 
-        .subscription:hover {
-            transform: scale(1.1) rotateY(0deg);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-        }
+/* Add this rule for the "Don't Stop Gaming" text */
+h2.dont-stop-gaming {
+    text-align: center;
+}
+h1.pricing {
+    margin-top: 80px; /* Adjust the top margin to create more space */
+    color: white; /* Ensure text color is set */
+    text-align: center; /* Center the pricing text */
+}
 
-        h1.pricing {
-            margin-bottom: 10px;
-            font-size: 24px;
-            font-weight: 700;
-            color: #fff;
-            text-align: center;
-            animation: slideInUp 1s ease;
-        }
+.subscription {
+    position: relative;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px;
+    text-align: center;
+    max-width: 350px;
+    overflow: hidden;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    width: calc(33.33% - 30px);
+    animation: zoomIn 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transform-origin: center center;
+}
 
-        p.tagline {
-            font-size: 16px;
-            margin-bottom: 30px;
-            color: #bbb;
-            text-align: center;
-            animation: slideInUp 1s ease;
-        }
+.subscription::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(17, 17, 17, 0.6), rgba(17, 17, 17, 0.9));
+    z-index: -1;
+    border-radius: inherit;
+}
 
-        h2, p {
-            color: #fff;  /* Adjusted text color to white */
-        }
+.subscription:hover {
+    transform: scale(1.1) rotateY(0deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
 
-        button.basic,
-        button.pro,
-        button.premium {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 700;
-            transition: background 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
-        }
 
-        button.basic {
-            background: linear-gradient(to right, #3366ff, #003366);
-            color: #fff;
-        }
+.subscriptions-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+    /* Adjust the top margin to create more space */
+}
 
-        button.pro {
-            background: linear-gradient(to right, #666, #333);
-            color: #fff;
-        }
 
-        button.premium {
-            background: linear-gradient(to right, #1a1a1a, #333);
-            color: #fff;
-        }
 
-        button.basic:hover,
-        button.pro:hover,
-        button.premium:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
 
-        @media (max-width: 600px) {
-            .subscription {
-                width: 100%;
-            }
-        }
+
+
+
+
+
+button.basic,
+button.pro,
+button.premium {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    transition: background 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+button.basic {
+    background: linear-gradient(to right, #3366ff, #003366);
+    color: #fff;
+}
+
+button.pro {
+    background: linear-gradient(to right, #666, #333);
+    color: #fff;
+}
+
+button.premium {
+    background: linear-gradient(to right, #1a1a1a, #333);
+    color: #fff;
+}
+
+button.basic:hover,
+button.pro:hover,
+button.premium:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 600px) {
+    .subscription {
+        width: 100%;
+    }
+}
+
+
+
+
+
+        
     </style>
 </head>
 <body>
