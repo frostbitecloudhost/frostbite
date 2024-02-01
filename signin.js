@@ -22,7 +22,6 @@ function login(email, password) {
         .then((userCredential) => {
             // User logged in successfully
             console.log("Login successful:", userCredential.user);
-            updateSignInText();
         })
         .catch((error) => {
             console.error("Login error:", error.message);
@@ -34,8 +33,11 @@ function login(email, password) {
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM Loaded");
 
-    // Check authentication state on load
-    updateSignInText();
+    // Add an observer to handle authentication state changes
+    firebase.auth().onAuthStateChanged(function(user) {
+        // Update UI on authentication state changes
+        updateSignInText();
+    });
 
     // Add event listener for login form
     document.getElementById("loginForm").addEventListener("submit", function (event) {
@@ -44,11 +46,5 @@ document.addEventListener("DOMContentLoaded", function () {
         const password = document.getElementById("password").value;
 
         login(email, password);
-    });
-
-    // Add an observer to handle authentication state changes
-    firebase.auth().onAuthStateChanged(function(user) {
-        // Update UI on authentication state changes
-        updateSignInText();
     });
 });
