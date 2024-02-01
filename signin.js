@@ -2,18 +2,18 @@
 
 // Function to update the sign-in text based on user authentication
 function updateSignInText() {
-    // Get the authentication status from Firebase
-    firebase.auth().onAuthStateChanged(function(user) {
-        var signInTextElement = document.getElementById("signInText");
+    var signInTextElement = document.getElementById("signInText");
 
-        if (user) {
-            // User is signed in
-            signInTextElement.textContent = "Profile";
-        } else {
-            // User is signed out
-            signInTextElement.textContent = "Sign In";
-        }
-    });
+    // Get the current user from Firebase Authentication
+    var user = firebase.auth().currentUser;
+
+    if (user) {
+        // User is signed in
+        signInTextElement.textContent = "Profile";
+    } else {
+        // User is signed out
+        signInTextElement.textContent = "Sign In";
+    }
 }
 
 // Call the function when the DOM is fully loaded
