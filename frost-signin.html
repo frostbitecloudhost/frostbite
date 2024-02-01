@@ -174,12 +174,11 @@
     </style>
     
     <script type="module">
-    // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
 
     // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
         apiKey: "AIzaSyCYisJ9j4FqUAxdZRLbXbV0lARN9LhM0Mw",
         authDomain: "frostbite-cloud.firebaseapp.com",
@@ -189,27 +188,18 @@
         messagingSenderId: "140620606254",
         appId: "1:140620606254:web:6bb6f3ab549e920626e8bf",
         measurementId: "G-49M1EZ9D2F"
-        
     };
 
-    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
-    
-    
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
-
     const auth = getAuth(app);
-
-    
-    // ... (Firebase initialization code)
 
     function signUp(email, password) {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // User signed up successfully
                 console.log("Sign up successful:", userCredential.user);
-                updateSignInText("Profile");
+                checkAuthState(); // Update UI after successful sign-up
             })
             .catch((error) => {
                 console.error("Sign up error:", error.message);
@@ -218,9 +208,34 @@
             });
     }
 
+    function login(email, password) {
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // User logged in successfully
+                console.log("Login successful:", userCredential.user);
+            })
+            .catch((error) => {
+                console.error("Login error:", error.message);
+            });
+    }
+
+    function checkAuthState() {
+        const user = auth.currentUser;
+        if (user) {
+            // User is signed in, update UI accordingly
+            updateSignInText("Profile");
+        } else {
+            // User is signed out, update UI accordingly
+            updateSignInText("Sign Up");
+        }
+    }
+
     function updateSignInText(text) {
         document.getElementById("signInText").textContent = text;
     }
+
+    // Call checkAuthState on page load to set initial UI state
+    checkAuthState();
 
     document.getElementById("signupForm").addEventListener("submit", function (event) {
         event.preventDefault();
@@ -237,32 +252,6 @@
         }
     });
 
-    // ... (Existing loginForm code)
-
-    function login(email, password) {
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // User logged in successfully
-                console.log("Login successful:", userCredential.user);
-            })
-            .catch((error) => {
-                console.error("Login error:", error.message);
-            });
-    }
-
-    document.getElementById("signupForm").addEventListener("submit", function (event) {
-        event.preventDefault();
-        const email = document.getElementById("signupEmail").value;
-        const password = document.getElementById("signupPassword").value;
-        const confirmPassword = document.getElementById("confirmPassword").value;
-
-        if (password === confirmPassword) {
-            signUp(email, password);
-        } else {
-            console.error("Passwords do not match");
-        }
-    });
-
     document.getElementById("loginForm").addEventListener("submit", function (event) {
         event.preventDefault();
         const email = document.getElementById("username").value;
@@ -271,6 +260,7 @@
         login(email, password);
     });
 </script>
+
 
 </head>
 <body>
