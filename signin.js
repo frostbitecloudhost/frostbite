@@ -16,10 +16,33 @@ function updateSignInText() {
     }
 }
 
-// Call the function when the DOM is fully loaded
-document.addEventListener("DOMContentLoaded", function() {
-    updateSignInText();
-});
+// Function to perform login
+function login(email, password) {
+    firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // User logged in successfully
+            console.log("Login successful:", userCredential.user);
+            updateSignInText();
+        })
+        .catch((error) => {
+            console.error("Login error:", error.message);
+            alert("Login failed. Check your username and password.");
+        });
+}
 
-// Rest of your existing JavaScript code specific to signin.js
-// ...
+// Call the function when the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOM Loaded");
+
+    // Check authentication state on load
+    updateSignInText();
+
+    // Add event listener for login form
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const email = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        login(email, password);
+    });
+});
