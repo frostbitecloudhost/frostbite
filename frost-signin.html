@@ -302,36 +302,32 @@
         </div>
     </div>
 
-    <script>
-        function switchForm(containerId) {
-            var loginContainer = document.getElementById('loginContainer');
-            var signupContainer = document.getElementById('signupContainer');
+  <script>
+    function switchForm(containerId) {
+        var loginContainer = document.getElementById('loginContainer');
+        var signupContainer = document.getElementById('signupContainer');
 
-            if (containerId === 'loginContainer') {
-                loginContainer.style.opacity = '1';
-                loginContainer.style.pointerEvents = 'auto';
-                signupContainer.style.opacity = '0';
-                signupContainer.style.pointerEvents = 'none';
-                setTimeout(function() {
-                    signupContainer.style.display = 'none';
-                    loginContainer.style.display = 'block';
-                }, 500);
-            } else {
-                signupContainer.style.opacity = '1';
-                signupContainer.style.pointerEvents = 'auto';
-                loginContainer.style.opacity = '0';
-                loginContainer.style.pointerEvents = 'none';
-                setTimeout(function() {
-                    loginContainer.style.display = 'none';
-                    signupContainer.style.display = 'block';
-                }, 500);
-            }
+        if (containerId === 'loginContainer') {
+            loginContainer.style.opacity = '1';
+            loginContainer.style.pointerEvents = 'auto';
+            signupContainer.style.opacity = '0';
+            signupContainer.style.pointerEvents = 'none';
+            setTimeout(function() {
+                signupContainer.style.display = 'none';
+                loginContainer.style.display = 'block';
+            }, 500);
+        } else {
+            signupContainer.style.opacity = '1';
+            signupContainer.style.pointerEvents = 'auto';
+            loginContainer.style.opacity = '0';
+            loginContainer.style.pointerEvents = 'none';
+            setTimeout(function() {
+                loginContainer.style.display = 'none';
+                signupContainer.style.display = 'block';
+            }, 500);
         }
-
-        
-    
-
-    </script>
+    }
+</script>
     
 </body>
 </html>
