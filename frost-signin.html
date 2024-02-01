@@ -201,16 +201,43 @@
 
     const auth = getAuth(app);
 
+    
+    // ... (Firebase initialization code)
+
     function signUp(email, password) {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // User signed up successfully
                 console.log("Sign up successful:", userCredential.user);
+                updateSignInText("Profile");
             })
             .catch((error) => {
                 console.error("Sign up error:", error.message);
+                // Display error message to the user
+                alert(error.message);
             });
     }
+
+    function updateSignInText(text) {
+        document.getElementById("signInText").textContent = text;
+    }
+
+    document.getElementById("signupForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const email = document.getElementById("signupEmail").value;
+        const password = document.getElementById("signupPassword").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (password === confirmPassword) {
+            signUp(email, password);
+        } else {
+            console.error("Passwords do not match");
+            // Display error message to the user
+            alert("Passwords do not match");
+        }
+    });
+
+    // ... (Existing loginForm code)
 
     function login(email, password) {
         signInWithEmailAndPassword(auth, email, password)
