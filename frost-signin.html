@@ -3,184 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login and Sign Up</title>
+    <title>FrostBite | Login</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at top left, #05060c, #1c1e38);
-            color: white;
-            padding-top: 60px;
-        }
+    <link rel="stylesheet" href="frost-signin.css">
 
-        #navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(10, 10, 10, 0.01);
-            padding: 10px;
-            border-radius: 0px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-            overflow: hidden;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-       #logo {
-            width: 150px;
-            transition: transform 0.5s ease-in-out;
-            filter: brightness(1.2);
-            margin-top: 5px;
-        }
-
-        #signInContainer {
-            display: flex;
-            align-items: center;
-            white-space: nowrap;
-        }
-
-        #button {
-            background-color: #171717;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            margin-right: 10px;
-            filter: brightness(0.9);
-            max-width: 120px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        #signInText {
-            color: white;
-            font-size: 15px;
-            max-width: 80px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            margin-right: 20px;
-        }
-
-        #userIcon {
-            width: 13px;
-            margin-right: 5px;
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-            overflow: hidden;
-            width: 300px;
-            padding: 20px;
-            box-sizing: border-box;
-            margin-top: 60px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            transition: background 0.5s ease, backdrop-filter 0.5s ease, box-shadow 0.5s ease, transform 0.5s ease;
-            opacity: 1;
-        }
-
-        h1 {
-            text-align: center;
-            color: #fff;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            margin-bottom: 8px;
-            color: #bbb;
-            font-size: 14px;
-        }
-
-        input {
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #666;
-            border-radius: 8px;
-            color: #ccc;
-            background-color: #444;
-            transition: border-color 0.3s ease, transform 0.5s ease, background-color 0.3s ease;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: #3498db;
-            transform: scale(1.05);
-            background-color: #555;
-        }
-
-        input::placeholder {
-            color: #888;
-            transition: color 0.3s ease;
-        }
-
-        input:focus::placeholder {
-            color: transparent;
-        }
-
-        button {
-            background-color: #3498db;
-            color: #fff;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #2980b9;
-        }
-
-        .switch-form {
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .switch-form a {
-            color: #3498db;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .switch-form a:hover {
-            text-decoration: underline;
-        }
-
-        @media screen and (orientation: landscape) {
-            .container {
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-        }
-
-        #signupContainer {
-            display: none;
-            opacity: 0;
-        }
-    </style>
-    
-    <!-- Your existing HTML content above this line -->
-
-<!-- Your existing HTML content above this line -->
-
-
-
-
-<!-- Your existing HTML content below this line -->
 <script type="module">
 
     
@@ -199,49 +25,38 @@
         measurementId: "G-49M1EZ9D2F"
     };
 
-    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    // Function to update the sign-in text based on user authentication
     function updateSignInText() {
         var signInTextElement = document.getElementById("signInText");
 
-        // Get the current user from Firebase Authentication
         var user = auth.currentUser;
 
         if (user) {
-            // User is signed in
             signInTextElement.textContent = "Profile";
         } else {
-            // User is signed out
             signInTextElement.textContent = "Sign In";
         }
     }
 
-    // Call the function when the DOM is fully loaded
     document.addEventListener("DOMContentLoaded", function () {
         console.log("DOM Loaded");
 
-        // Add an observer to handle authentication state changes
         onAuthStateChanged(auth, function (user) {
-            // Update UI on authentication state changes
             updateSignInText();
         });
     });
 
-    // Function to handle user signup
     function signUp() {
         var email = document.getElementById("signupEmail").value;
         var password = document.getElementById("signupPassword").value;
 
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // User signed up successfully
                 console.log("User signed up:", userCredential.user);
             })
             .catch((error) => {
-                // Handle errors here
                 console.error("Error signing up:", error.message);
             });
     }
@@ -262,7 +77,6 @@
         </div>
     </div>
 
-    <!-- Login Container -->
     <div class="container" id="loginContainer">
         <h1>Login</h1>
         <form id="loginForm">
@@ -279,7 +93,6 @@
         </div>
     </div>
 
-    <!-- Signup Container -->
     <div class="container" id="signupContainer">
         <h1>Sign Up</h1>
         <form id="signupForm">

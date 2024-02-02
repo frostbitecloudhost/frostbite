@@ -3,103 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FrostBite</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background: #070707;
-        }
+    <title>FrostBite | Home</title>
+    <link rel="stylesheet" href="index.css">
 
-      #navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(10, 10, 10, 0.3);
-    padding: 10px;
-    border-radius: 0px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-    overflow: hidden;
-    z-index: 1000; /* Ensure it appears above other elements */
-    backdrop-filter: blur(10px); /* Add backdrop-filter for blur effect */
-}
-
-
-#logo {
-    width: 150px;
-    transition: transform 0.5s ease-in-out;
-    filter: brightness(1.2);
-    margin-top: 5px;
-}
-
-        #signInContainer {
-            display: flex;
-            align-items: center;
-            white-space: nowrap;
-        }
-
-        #button {
-            background-color: #171717;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            margin-right: 10px;
-            filter: brightness(0.9);
-            max-width: 120px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        #signInText {
-            color: white;
-            font-size: 15px;
-            max-width: 80px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            margin-right: 20px;
-        }
-
-        #userIcon {
-            width: 13px;
-            margin-right: 5px;
-        }
-
-        /* Additional Styles for Showcase and Exclusive Game */
-       #showcase-section {
-    margin: 80px auto 20px; /* Adjust the top margin to create more space */
-    text-align: center;
-}
-
-
-        .feature-card, .game-card {
-            background-color: #1f1f1f;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 10px;
-        }
-
-        .play-now-button {
-            background-color: #3498db;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
-            display: inline-block;
-            transition: background-color 0.3s ease;
-        }
-
-        .play-now-button:hover {
-            background-color: #2980b9;
-        }
-    </style>
-    
     <script src="signin.js" type="module"></script>
 </head>
 <body>
@@ -112,7 +18,6 @@
         </div>
     </div>
 
-    <!-- Showcase Section -->
     <div id="showcase-section">
         <h2 style="color: white; text-align: center;">Explore Our Features</h2>
 
@@ -135,7 +40,6 @@
         </div>
     </div>
 
-    <!-- Exclusive Game of the Month -->
     <div id="exclusive-game-section">
         <h2 style="color: white; text-align: center;">Exclusive Game of the Month</h2>
 
@@ -149,12 +53,10 @@
 
     <script>
         function redirectToAnotherPage() {
-            // Replace 'another-page.html' with the actual HTML file you want to navigate to
             window.location.href = "frost-pricing.html";
         }
 
         function playExclusiveGame() {
-            // Add logic to handle playing the exclusive game
             alert("Launching 'The Legendary Quest'...");
         }
     </script>
