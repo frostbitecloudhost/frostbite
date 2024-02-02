@@ -10,7 +10,7 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #141414;
+      background-color: #36393f;
       color: #fff;
       font-family: 'Arial', sans-serif;
       height: 100%;
@@ -177,52 +177,87 @@
   </style>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    let username = prompt("Enter your username:");
+    if (!username) {
+      username = "Guest"; // Default to "Guest" if no username is provided
+    }
+
     const input = document.querySelector('.bottom-nav input');
     const messageContainer = document.querySelector('.message-container');
-    const username = prompt("Enter your username:");
 
-    if (username) {
-      const messages = loadMessages();
-
-      document.querySelector('.bottom-nav button').addEventListener('click', function() {
-        const messageText = input.value.trim();
-        if (messageText !== '') {
+    document.querySelector('.bottom-nav button').addEventListener('click', function() {
+      const messageText = input.value.trim();
+      if (messageText !== '') {
+        if (isChangeNameCommand(messageText)) {
+          handleNameChange(messageText);
+        } else {
           appendMessage(username, 'sent', messageText);
           saveMessage(username, 'sent', messageText);
-          input.value = '';
         }
-      });
-
-      function appendMessage(user, type, text) {
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('message', type);
-        messageDiv.innerHTML = `<strong>${user}</strong>: ${text}`;
-        messageContainer.appendChild(messageDiv);
+        input.value = '';
       }
+    });
 
-      function loadMessages() {
-        const storedMessages = localStorage.getItem('chatMessages');
-        return storedMessages ? JSON.parse(storedMessages) : [];
+    function appendMessage(user, type, text) {
+      const messageDiv = document.createElement('div');
+      messageDiv.classList.add('message', type);
+      messageDiv.innerHTML = `<strong>${user}:</strong> ${text}`;
+      
+      if (type === 'sent') {
+        messageDiv.classList.add('sent');
+      } else {
+        messageDiv.classList.add('received');
       }
+      
+      messageContainer.appendChild(messageDiv);
+      messageContainer.scrollTop = messageContainer.scrollHeight; // Scroll to the bottom
+    }
 
-      function saveMessage(user, type, text) {
-        const messages = loadMessages();
+    function loadMessages() {
+      const storedMessages = localStorage.getItem('chatMessages');
+      return storedMessages ? JSON.parse(storedMessages) : [];
+    }
+
+    function saveMessage(user, type, text) {
+      const messages = loadMessages();
+      const isSender = user === username; // Check if the user is the sender
+      if (!isSender) {
         messages.push({ user, type, text });
         localStorage.setItem('chatMessages', JSON.stringify(messages));
+        appendMessage(user, type, text); // Update the display immediately
       }
 
-      function displayStoredMessages() {
-        messages.forEach(({ user, type, text }) => {
-          appendMessage(user, type, text);
-        });
+      if (type === 'info' && !isSender) {
+        appendMessage('System', 'info', text); // Display the system message publicly
       }
-
-      displayStoredMessages();
-    } else {
-      alert("Please enter a username to start chatting.");
     }
+
+    function displayStoredMessages() {
+      const messages = loadMessages();
+      messages.forEach(({ user, type, text }) => {
+        appendMessage(user, type, text);
+      });
+    }
+
+    function isChangeNameCommand(text) {
+      return text.startsWith('!changename ');
+    }
+
+    function handleNameChange(command) {
+      const newName = command.split(' ')[1];
+      if (newName) {
+        const previousUsername = username;
+        username = newName;
+        saveMessage('System', 'info', `${previousUsername} changed their username to ${newName}`);
+      } else {
+        saveMessage('System', 'error', 'Invalid !changename command. Usage: !changename <name>');
+      }
+    }
+
+    displayStoredMessages();
   });
 </script>
+
 
 
 
