@@ -49,44 +49,83 @@
       margin-right: 10px;
       border: 1px solid #ddd;
       border-radius: 5px;
+      height: 20px;
     }
 
     /* Button CSS Starts Here */
     .bottom-nav button {
-      padding: 10px;
+      padding: 0; /* Remove padding to match image dimensions */
       background-color: #171717;
-      color: #fff;
       border: none;
-      border-radius: 5px;
       cursor: pointer;
+      border-radius: 7px;
       margin-right: 20px;
+      height: 45px;
+      width: 45px;
+      line-height: 0;
     }
 
     .bottom-nav img {
       /* Icon styles go here */
-      width: 20px; /* Adjust icon size if needed */
+      width: 22px; /* Adjust icon width to match image dimensions */
+      height: 22px; /* Adjust icon height to match image dimensions */
+      border-radius: 10px;
     }
     /* Button CSS Ends Here */
 
     @media (max-width: 768px) {
       .chat-container {
         padding: 10px;
+       
       }
 
       .bottom-nav {
-        flex-direction: column;
-        align-items: stretch;
-      }
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #070707;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+  justify-content: space-between; 
+  line-height: 0;/* Added this line */
+}
 
       .bottom-nav input {
-        margin-bottom: 10px;
+        
+        width: 10px;
       }
+
+      /* Button styles for mobile */
+      .bottom-nav button {
+        background-color: #171717;
+        width: 35px;
+        height: 35px;
+        border-radius: 7px;
+        align-items: center;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+        line-height: 0;
+        margin-right: 20px;
+        /* Different color for mobile */
+      }
+      
+       .bottom-nav img {
+      /* Icon styles go here */
+      width: 15px; /* Adjust icon width to match image dimensions */
+      height: 15px; /* Adjust icon height to match image dimensions */
+      border-radius: 5px;
+      
     }
+    }
+    
   </style>
 </head>
 <body>
   <div class="header">
-    <h1>WhatsApp-like UI</h1>
+    <h1>FrostBite</h1>
   </div>
 
   <div class="chat-container">
@@ -94,8 +133,8 @@
   </div>
 
   <div class="bottom-nav">
-    <input type="text" placeholder="Type your message...">
-    <button><img src="send-icon.png"></button>
+    <input type="text" placeholder="Say Anything...">
+    <button><img src="send-icon.png" alt="Send icon"></button>
   </div>
 </body>
 </html>
