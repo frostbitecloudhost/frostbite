@@ -10,7 +10,9 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #171717;
+      background-color: #36393f; /* Discord-like background color */
+      color: #fff;
+      font-family: 'Arial', sans-serif;
     }
 
     .glass-morphism {
@@ -36,10 +38,10 @@
     #button,
     .bottom-nav button {
       padding: 10px 20px;
-      background-color: #171717;
+      background-color: #171717; /* Discord primary color */
       color: #fff;
       border: none;
-      border-radius: 5px;
+      border-radius: 20px;
       cursor: pointer;
       margin-right: 20px;
       transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
@@ -47,7 +49,7 @@
 
     #button:hover,
     .bottom-nav button:hover {
-      background-color: #171717; /* Change to your desired hover color */
+      background-color: #677bc4; /* Darker shade on hover */
       transform: scale(1.1); /* Adjust the scale factor for the hover effect */
     }
 
@@ -67,11 +69,27 @@
       padding: 20px;
     }
 
+    .message-container {
+      display: flex;
+      flex-direction: column;
+    }
+
     .message {
-      background-color: #dcf8c6;
+      background-color: #7289da; /* Discord primary color */
       padding: 10px;
       border-radius: 8px;
       margin-bottom: 10px;
+      max-width: 70%; /* Adjust maximum width of the message container */
+    }
+
+    .message.sent {
+      background-color: #677bc4; /* Darker shade for sent messages */
+      align-self: flex-end; /* Move sent messages to the right */
+    }
+
+    .message img {
+      max-width: 100%;
+      border-radius: 8px;
     }
 
     .bottom-nav {
@@ -92,17 +110,17 @@
       flex: 1;
       padding: 10px;
       margin-right: 10px;
-      border: 0px solid #ddd;
-      border-radius: 10px;
+      border: 0; /* Discord-like border color */
+      border-radius: 15px;
       height: 20px;
-      background-color: #232323; /* Dark background color */
+      background-color: #2c2f33; /* Discord-like input background color */
       color: #fff; /* Text color */
       outline: none; /* Remove outline on focus */
       transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     }
 
     .bottom-nav input:hover {
-      background-color: #232323; /* Darker background on hover */
+      background-color: #40444b; /* Darker background on hover */
     }
 
     .bottom-nav img {
@@ -130,7 +148,7 @@
         bottom: 0;
         width: 100%;
         box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
-        justify-content: space-between; 
+        justify-content: space-between;
         line-height: 0; /* Added this line */
       }
 
@@ -151,7 +169,14 @@
   </div>
 
   <div class="chat-container">
-    <!-- Chat messages will be displayed here -->
+    <div class="message-container">
+      <div class="message">Hello! How can I help you?</div>
+      <div class="message sent">Hi! I have a question about your services.</div>
+      <div class="message">Sure, feel free to ask.</div>
+      <div class="message sent">Is there a free trial available?</div>
+      <div class="message">Yes, we offer a 7-day free trial for our services.</div>
+      <!-- Add more messages as needed -->
+    </div>
   </div>
 
   <div class="bottom-nav glass-morphism">
