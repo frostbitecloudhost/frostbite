@@ -1,14 +1,101 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp-like UI</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #171717;
+    }
+
+    .header {
+      background-color: #075e54;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .chat-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .message {
+      background-color: #dcf8c6;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .bottom-nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: #070707;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .bottom-nav input {
+      flex: 1;
+      padding: 10px;
+      margin-right: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    /* Button CSS Starts Here */
+    .bottom-nav button {
+      padding: 10px;
+      background-color: #171717;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 20px;
+    }
+
+    .bottom-nav img {
+      /* Icon styles go here */
+      width: 20px; /* Adjust icon size if needed */
+    }
+    /* Button CSS Ends Here */
+
+    @media (max-width: 768px) {
+      .chat-container {
+        padding: 10px;
+      }
+
+      .bottom-nav {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .bottom-nav input {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="header">
+    <h1>WhatsApp-like UI</h1>
+  </div>
 
+  <div class="chat-container">
+    <!-- Chat messages will be displayed here -->
+  </div>
+
+  <div class="bottom-nav">
+    <input type="text" placeholder="Type your message...">
+    <button><img src="send-icon.png"></button>
+  </div>
 </body>
-
 </html>
