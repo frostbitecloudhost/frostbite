@@ -3,20 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WhatsApp-like UI</title>
+  <title>FrostBite | Chat</title>
+  <link rel="stylesheet" href="index.css">
+
   <style>
     body {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
       background-color: #171717;
     }
 
-    .header {
-      background-color: #075e54;
-      color: #fff;
-      text-align: center;
+    #navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.1); /* Adjust transparency as needed */
+      border-radius: 10px; /* Adjust border radius as needed */
       padding: 15px;
+    }
+
+    #logo {
+      width: 100px;
+      height: auto;
+    }
+
+    #signInContainer {
+      display: flex;
+      align-items: center;
+    }
+
+    #button {
+      background-color: #25d366;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    #userIcon {
+      width: 20px;
+      height: auto;
+      margin-right: 5px;
+    }
+
+    #signInText {
+      color: #fff;
     }
 
     .chat-container {
@@ -52,9 +86,8 @@
       height: 20px;
     }
 
-    /* Button CSS Starts Here */
     .bottom-nav button {
-      padding: 0; /* Remove padding to match image dimensions */
+      padding: 0;
       background-color: #171717;
       border: none;
       cursor: pointer;
@@ -66,66 +99,35 @@
     }
 
     .bottom-nav img {
-      /* Icon styles go here */
-      width: 22px; /* Adjust icon width to match image dimensions */
-      height: 22px; /* Adjust icon height to match image dimensions */
+      width: 22px;
+      height: 22px;
       border-radius: 10px;
     }
-    /* Button CSS Ends Here */
 
     @media (max-width: 768px) {
       .chat-container {
         padding: 10px;
-       
       }
 
       .bottom-nav {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  background-color: #070707;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
-  justify-content: space-between; 
-  line-height: 0;/* Added this line */
-}
+        flex-direction: column;
+        align-items: stretch;
+      }
 
       .bottom-nav input {
-        
-        width: 10px;
+        margin-bottom: 10px;
       }
-
-      /* Button styles for mobile */
-      .bottom-nav button {
-        background-color: #171717;
-        width: 35px;
-        height: 35px;
-        border-radius: 7px;
-        align-items: center;
-        padding: 0;
-        border: none;
-        cursor: pointer;
-        line-height: 0;
-        margin-right: 20px;
-        /* Different color for mobile */
-      }
-      
-       .bottom-nav img {
-      /* Icon styles go here */
-      width: 15px; /* Adjust icon width to match image dimensions */
-      height: 15px; /* Adjust icon height to match image dimensions */
-      border-radius: 5px;
-      
     }
-    }
-    
   </style>
 </head>
 <body>
-  <div class="header">
-    <h1>FrostBite</h1>
+  <div id="navbar">
+    <img id="logo" src="FB-Logo.png" alt="Logo">
+    <div id="signInContainer">
+      <button id="button" onclick="redirectToAnotherPage()">Play Now</button>
+      <img id="userIcon" src="person.png" alt="User Icon">
+      <span id="signInText">Sign In</span>
+    </div>
   </div>
 
   <div class="chat-container">
