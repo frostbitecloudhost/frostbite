@@ -16,7 +16,7 @@ padding: 10px;
 border-radius: 0px;
 box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 overflow: hidden;
-z-index: 1000;
+z-index: 0;
 backdrop-filter: blur(10px);
 }
 
@@ -89,4 +89,89 @@ text-align: center;
 
 .play-now-button:hover {
     background-color: #2980b9;
+}
+
+#content {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+}
+
+#vpbtn {
+    background: linear-gradient(to right, #3453db, #20209b);
+    position: absolute;
+    left: 20px;
+    top: 22vh;
+    padding: 12px 24px;
+    border-radius: 116px;
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: white;
+    transition: top 0.2s;
+}
+
+@media screen and (max-width: 600px) {
+    #vpbtn {
+        top: 18vh;
+        font-size: 11px;
+    }
+
+    #vpbtn:hover{
+        font-size: 12px;
+    }
+}
+
+#vpbtn:hover{
+    top: 21.7vh;
+}
+
+#H_P_CHeading{
+    position: absolute;
+    left: 25px;
+    top: 1.7vh;
+    font-weight: 600;
+    visibility: visible;
+}
+
+#H_P_CHeading2{
+    position: absolute;
+    left: 27px;
+    top: 1.7vh;
+    font-weight: 500;
+    visibility: hidden;
+}
+
+#H_P_CSubHeading{
+    position: absolute;
+    font-weight: 500;
+    top: 6.7vh;
+    left: 27px;
+    font-size: 27px;
+}
+
+@media screen and (max-width: 600px) {
+    #H_P_CHeading{
+        visibility: hidden;
+    }
+
+    #H_P_CHeading2{
+        visibility: visible;
+        font-size: 25px;
+        top: -3.76vh;
+    }
+}
+
+#H_P_CD{
+    position: absolute;
+    font-weight: 500;
+    top: 12vh;
+    font-size: 16px;
+    left: 27px;
 }
