@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrostBite | Home</title>
+    <link rel="stylesheet" href="index.css">
+
+    <script src="signin.js" type="module"></script>
+    <script src="loading.js" type="module"></script>
+
+    <style>
+        body {
+            background-color: #000; /* Set initial background color to black */
+            color: #fff; /* Set text color to white */
+            opacity: 0; /* Set initial opacity to 0 to hide content */
+            transition: opacity 1s ease; /* Add transition effect for opacity */
+        }
+
+        body.loaded {
+            opacity: 1; /* When body has the 'loaded' class, set opacity to 1 to reveal content */
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <img id="logo" src="FB-Logo.png" alt="Logo">
+        <div id="signInContainer">
+            <button id="button" onclick="redirectToAnotherPage()">Play Now</button>
+            <img id="userIcon" src="person.png" alt="User Icon">
+            <span id="signInText">Sign In</span>
+        </div>
+    </div>
+
+    <script>
+        // Add 'loaded' class to body once the content is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('loaded');
+        });
+
+        function redirectToAnotherPage() {
+            window.location.href = "frost-pricing.html";
+        }
+
+        function playExclusiveGame() {
+            alert("Launching 'The Legendary Quest'...");
+        }
+    </script>
+</body>
+</html>
