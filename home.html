@@ -6,6 +6,9 @@
     <title>FrostBite | Home</title>
     <link rel="stylesheet" href="index.css">
 
+    <!-- Add link to popular font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
     <script src="signin.js" type="module"></script>
     <script src="loading.js" type="module"></script>
 
@@ -15,10 +18,17 @@
             color: #fff; /* Set text color to white */
             opacity: 0; /* Set initial opacity to 0 to hide content */
             transition: opacity 1s ease; /* Add transition effect for opacity */
+            font-family: 'Montserrat', sans-serif; /* Set font family to Montserrat */
         }
 
         body.loaded {
             opacity: 1; /* When body has the 'loaded' class, set opacity to 1 to reveal content */
+        }
+
+        /* Update font for specific elements */
+        #navbar button,
+        #signInText {
+            font-family: 'Montserrat', sans-serif; /* Set font family to Montserrat */
         }
     </style>
 </head>
