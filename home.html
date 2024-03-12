@@ -19,16 +19,67 @@
             opacity: 0; /* Set initial opacity to 0 to hide content */
             transition: opacity 1s ease; /* Add transition effect for opacity */
             font-family: 'Montserrat', sans-serif; /* Set font family to Montserrat */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            align-content: center;
         }
 
         body.loaded {
-            opacity: 1; /* When body has the 'loaded' class, set opacity to 1 to reveal content */
+            opacity: 1;
+            align-items: center;/* When body has the 'loaded' class, set opacity to 1 to reveal content */
         }
 
         /* Update font for specific elements */
         #navbar button,
         #signInText {
             font-family: 'Montserrat', sans-serif; /* Set font family to Montserrat */
+        }
+
+        /* Add margin to top of section to prevent text from going under the nav bar */
+        #bestHomepageEver {
+            text-align: center;
+            align-items:center;
+           align-content:center;/* Center-align text */
+        }
+
+        /* Style for section title */
+        #bestHomepageEver h2 {
+            font-weight: 700; /* Make text bold */
+            font-size: 2em; /* Increase font size */
+            margin-bottom: 20px; /* Add space below the title */
+        }
+
+        /* Style for feature containers */
+        .feature-container {
+           margin-top: 50px;
+            margin-bottom: 20px;
+            max-width: 100%;
+            align-items: center;
+            align-content: center;
+            text-align: center;
+        }
+
+        /* Style for feature title */
+        .feature-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        /* Style for feature description */
+        .feature-description {
+            color: #ccc;
+        }
+
+        /* Style for feature icon */
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -41,6 +92,36 @@
             <span id="signInText">Sign In</span>
         </div>
     </div>
+
+    <!-- Added section below navigation bar -->
+    <section id="bestHomepageEver">
+        <h2>Welcome to FrostBite Cloud Host</h2>
+        <div class="feature-container">
+            <img class="feature-icon" src="game-library-icon.png" alt="Game Library Icon">
+            <div class="feature-title">Lowest Letency Cloud Service</div>
+            <div class="feature-description">Access the cloud-based Virtual Machine Services (VMS) with the lowest latency available.</div>
+        </div>
+        <div class="feature-container">
+            <img class="feature-icon" src="performance-icon.png" alt="Performance Icon">
+            <div class="feature-title">High Performance</div>
+            <div class="feature-description">Experience high-performance gaming without expensive hardware</div>
+        </div>
+        <div class="feature-container">
+            <img class="feature-icon" src="multiplayer-icon.png" alt="Multiplayer Icon">
+            <div class="feature-title">Seamless Multiplayer</div>
+            <div class="feature-description">Enjoy seamless multiplayer experiences across devices</div>
+        </div>
+        <div class="feature-container">
+            <img class="feature-icon" src="updates-icon.png" alt="Updates Icon">
+            <div class="feature-title">Regular Updates</div>
+            <div class="feature-description">Receive regular updates and new game releases</div>
+        </div>
+        <div class="feature-container">
+            <img class="feature-icon" src="support-icon.png" alt="Support Icon">
+            <div class="feature-title">24/7 Support</div>
+            <div class="feature-description">Get 24/7 customer support for all your gaming needs</div>
+        </div>
+    </section>
 
     <script>
         // Add 'loaded' class to body once the content is loaded
